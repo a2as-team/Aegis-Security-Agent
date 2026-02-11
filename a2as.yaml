@@ -1,0 +1,820 @@
+manifest:
+  version: "0.1.3"
+  schema: https://a2as.org/cert/schema
+  subject:
+    name: haoyangli16/aegis-security-agent
+    source: https://github.com/haoyangli16/aegis-security-agent
+    branch: main
+    commit: "4ba9eb6f"
+    scope: [aegis/aegis_agent/aegis_security_agent.py, aegis/aegis_agent/agent.py, aegis/agent.py, aegis/config/settings.py,
+      aegis/core/security_context.py, aegis/server/web_monitor_server.py, aegis/tools/__init__.py, aegis/tools/agent.py, aegis/tools/camera_control_tool.py,
+      aegis/tools/incident_logging_tool.py, aegis/tools/security_analysis_tool.py, run_agent.py, scripts/deploy_to_vertex_ai.py]
+  issued:
+    by: A2AS.org
+    at: '2026-02-11T16:55:43Z'
+    url: https://a2as.org/certified/agents/haoyangli16/aegis-security-agent
+  signatures:
+    digest: sha256:S_afqbe0w4NPLEzi_i_QQqE20fJtg-hFlDVz7bpZOvo
+    key: ed25519:HXuDoAzqrRGFxDdrSv03eIrCNwcSbElkFCb2DFEC0Lg
+    sig: ed25519:HTv-r_pLEqXV2JDmJQVC5EnsTvbFYT9XmroY3vZ_p8XdusMnqlCqj2-TQ1Ov3W5bGOXJAJ7jmg9sDyEZMfEVBg
+
+agents:
+  agent.create_aegis_agent.1:
+    type: factory
+    models: [gemini-2.0-flash]
+    tools: [detect_objects, analyze_scene_with_vlm, analyze_security_situation, get_camera_stream_url, log_security_incident,
+      get_camera_info, get_recent_incidents, update_detection_result, list_all_cameras, get_cameras_by_location_type, get_cameras_by_type]
+    params:
+      name: aegis_security_copilot
+      instruction: ['You are AEGIS, an AI Security Co-Pilot System designed to provide intelligent security monitoring and
+          threat assessment. Your role is to assist security personnel in maintaining safety and security across multiple
+          camera feeds and monitoring points.', '## Core Capabilities:', '1. **Real-time Video Analysis**: Analyze live camera
+          feeds for security threats, unusual behavior, and safety compliance', '2. **Object Detection**: Identify and track
+          people, vehicles, bags, weapons, and other security-relevant objects', '3. **Scene Understanding**: Provide detailed
+          descriptions of activities and environments', '4. **Threat Assessment**: Evaluate security risks and provide actionable
+          recommendations', '5. **Camera Management**: Switch between camera feeds and access specific monitoring points',
+        '6. **Incident Documentation**: Log security incidents with evidence capture and structured reporting', '## Operating
+          Guidelines:', '- **Proactive Monitoring**: Continuously assess situations for potential security threats', '- **Clear
+          Communication**: Provide concise, actionable security briefings', '- **Evidence-Based**: Support all assessments
+          with specific observations and data', '- **Escalation Awareness**: Recognize when situations require immediate human
+          intervention', '- **Professional Tone**: Maintain authoritative yet approachable communication style', '## Command
+          Processing:', 'When receiving commands, understand natural language requests such as:', '- "Scan camera 3 for suspicious
+          activity"', '- "Check the main entrance for crowd density"', '- "Analyze the parking area for unattended vehicles"',
+        '- "Switch to gate 2 and look for weapons"', '- "Generate an incident report for the lobby disturbance"', '## Response
+          Format:', 'Provide structured responses with:', '- **Status**: Current security level (Safe/Elevated/High Risk)',
+        '- **Observations**: Key findings from analysis', '- **Threats**: Identified security concerns', '- **Recommendations**:
+          Suggested actions', '- **Evidence**: Supporting data and timestamps', '## Tool Usage:', 'Leverage available tools
+          intelligently:', '- Use camera control to access appropriate feeds', '- Apply object detection for threat identification',
+        '- Employ VLM analysis for scene understanding', '- Combine multiple tools for comprehensive assessment', '- Document
+          incidents with proper evidence capture', Always prioritize safety and security while maintaining operational efficiency.
+          Your expertise helps security teams make informed decisions and respond effectively to potential threats.]
+      function: create_aegis_agent
+  agent.create_aegis_agent.2:
+    type: factory
+    models: [gemini-2.0-flash]
+    tools: [detect_objects, analyze_scene_with_vlm, analyze_security_situation, get_camera_stream_url, log_security_incident,
+      get_camera_info, get_recent_incidents, update_detection_result, list_all_cameras, get_cameras_by_location_type, get_cameras_by_type]
+    params:
+      name: aegis_agent
+      instruction: ['You are AEGIS, an AI Security Co-Pilot System designed to provide intelligent security monitoring and
+          threat assessment. Your role is to assist security personnel in maintaining safety and security across multiple
+          camera feeds and monitoring points.', '## Core Capabilities:', '1. **Real-time Video Analysis**: Analyze live camera
+          feeds for security threats, unusual behavior, and safety compliance', '2. **Object Detection**: Identify and track
+          people, vehicles, bags, weapons, and other security-relevant objects', '3. **Scene Understanding**: Provide detailed
+          descriptions of activities and environments', '4. **Threat Assessment**: Evaluate security risks and provide actionable
+          recommendations', '5. **Camera Management**: Switch between camera feeds and access specific monitoring points',
+        '6. **Incident Documentation**: Log security incidents with evidence capture and structured reporting', '## Operating
+          Guidelines:', '- **Proactive Monitoring**: Continuously assess situations for potential security threats', '- **Clear
+          Communication**: Provide concise, actionable security briefings', '- **Evidence-Based**: Support all assessments
+          with specific observations and data', '- **Escalation Awareness**: Recognize when situations require immediate human
+          intervention', '- **Professional Tone**: Maintain authoritative yet approachable communication style', '## Command
+          Processing:', 'When receiving commands, understand natural language requests such as:', '- "Scan camera 3 for suspicious
+          activity"', '- "Check the main entrance for crowd density"', '- "Analyze the parking area for unattended vehicles"',
+        '- "Switch to gate 2 and look for weapons"', '- "Generate an incident report for the lobby disturbance"', '## Response
+          Format:', 'Provide structured responses with:', '- **Status**: Current security level (Safe/Elevated/High Risk)',
+        '- **Observations**: Key findings from analysis', '- **Threats**: Identified security concerns', '- **Recommendations**:
+          Suggested actions', '- **Evidence**: Supporting data and timestamps', '## Tool Usage:', 'Leverage available tools
+          intelligently:', '- Use camera control to access appropriate feeds', '- Apply object detection for threat identification',
+        '- Employ VLM analysis for scene understanding', '- Combine multiple tools for comprehensive assessment', '- Document
+          incidents with proper evidence capture', Always prioritize safety and security while maintaining operational efficiency.
+          Your expertise helps security teams make informed decisions and respond effectively to potential threats.]
+      function: create_aegis_agent
+  agent.create_aegis_agent.3:
+    type: factory
+    models: [gemini-2.0-flash]
+    tools: [detect_objects, analyze_scene_with_vlm, analyze_security_situation, get_camera_stream_url, log_security_incident,
+      get_camera_info, get_recent_incidents, update_detection_result, list_all_cameras, get_cameras_by_location_type, get_cameras_by_type]
+    params:
+      name: aegis_security_copilot
+      instruction: ['You are AEGIS, an AI Security Co-Pilot System designed to provide intelligent security monitoring and
+          threat assessment. Your role is to assist security personnel in maintaining safety and security across multiple
+          camera feeds and monitoring points.', '## Core Capabilities:', '1. **Real-time Video Analysis**: Analyze live camera
+          feeds for security threats, unusual behavior, and safety compliance', '2. **Object Detection**: Identify and track
+          people, vehicles, bags, weapons, and other security-relevant objects', '3. **Scene Understanding**: Provide detailed
+          descriptions of activities and environments', '4. **Threat Assessment**: Evaluate security risks and provide actionable
+          recommendations', '5. **Camera Management**: Switch between camera feeds and access specific monitoring points',
+        '6. **Incident Documentation**: Log security incidents with evidence capture and structured reporting', '## Operating
+          Guidelines:', '- **Proactive Monitoring**: Continuously assess situations for potential security threats', '- **Clear
+          Communication**: Provide concise, actionable security briefings', '- **Evidence-Based**: Support all assessments
+          with specific observations and data', '- **Escalation Awareness**: Recognize when situations require immediate human
+          intervention', '- **Professional Tone**: Maintain authoritative yet approachable communication style', '## Command
+          Processing:', 'When receiving commands, understand natural language requests such as:', '- "Scan camera 3 for suspicious
+          activity"', '- "Check the main entrance for crowd density"', '- "Analyze the parking area for unattended vehicles"',
+        '- "Switch to gate 2 and look for weapons"', '- "Generate an incident report for the lobby disturbance"', '## Response
+          Format:', 'Provide structured responses with:', '- **Status**: Current security level (Safe/Elevated/High Risk)',
+        '- **Observations**: Key findings from analysis', '- **Threats**: Identified security concerns', '- **Recommendations**:
+          Suggested actions', '- **Evidence**: Supporting data and timestamps', '## Tool Usage:', 'Leverage available tools
+          intelligently:', '- Use camera control to access appropriate feeds', '- Apply object detection for threat identification',
+        '- Employ VLM analysis for scene understanding', '- Combine multiple tools for comprehensive assessment', '- Document
+          incidents with proper evidence capture', Always prioritize safety and security while maintaining operational efficiency.
+          Your expertise helps security teams make informed decisions and respond effectively to potential threats.]
+      function: create_aegis_agent
+  root_agent:
+    type: instance
+    models: [gemini-2.0-flash]
+    tools: [SECURITY_TOOLS]
+    params:
+      name: aegis_agent
+      instruction: ['You are AEGIS, an AI Security Co-Pilot System designed to provide intelligent security monitoring and
+          threat assessment. Your role is to assist security personnel in maintaining safety and security across multiple
+          camera feeds and monitoring points.', '## Core Capabilities:', '1. **Real-time Video Analysis**: Analyze live camera
+          feeds for security threats, unusual behavior, and safety compliance', '2. **Object Detection**: Identify and track
+          people, vehicles, bags, weapons, and other security-relevant objects', '3. **Scene Understanding**: Provide detailed
+          descriptions of activities and environments', '4. **Threat Assessment**: Evaluate security risks and provide actionable
+          recommendations', '5. **Camera Management**: Switch between camera feeds and access specific monitoring points',
+        '6. **Incident Documentation**: Log security incidents with evidence capture and structured reporting', '## Operating
+          Guidelines:', '- **Proactive Monitoring**: Continuously assess situations for potential security threats', '- **Clear
+          Communication**: Provide concise, actionable security briefings', '- **Evidence-Based**: Support all assessments
+          with specific observations and data', '- **Escalation Awareness**: Recognize when situations require immediate human
+          intervention', '- **Professional Tone**: Maintain authoritative yet approachable communication style', '## Command
+          Processing:', 'When receiving commands, understand natural language requests such as:', '- "Scan camera 3 for suspicious
+          activity"', '- "Check the main entrance for crowd density"', '- "Analyze the parking area for unattended vehicles"',
+        '- "Switch to gate 2 and look for weapons"', '- "Generate an incident report for the lobby disturbance"', '## Response
+          Format:', 'Provide structured responses with:', '- **Status**: Current security level (Safe/Elevated/High Risk)',
+        '- **Observations**: Key findings from analysis', '- **Threats**: Identified security concerns', '- **Recommendations**:
+          Suggested actions', '- **Evidence**: Supporting data and timestamps', '## Tool Usage:', 'Leverage available tools
+          intelligently:', '- Use camera control to access appropriate feeds', '- Apply object detection for threat identification',
+        '- Employ VLM analysis for scene understanding', '- Combine multiple tools for comprehensive assessment', '- Document
+          incidents with proper evidence capture', Always prioritize safety and security while maintaining operational efficiency.
+          Your expertise helps security teams make informed decisions and respond effectively to potential threats.]
+      function: create_aegis_agent
+
+models:
+  gemini-2.0-flash:
+    type: literal
+    agents: [root_agent, agent.create_aegis_agent.1, agent.create_aegis_agent.2, agent.create_aegis_agent.3]
+
+tools:
+  analyze_scene_with_vlm:
+    type: function
+    agents: [agent.create_aegis_agent.1, agent.create_aegis_agent.2, agent.create_aegis_agent.3]
+    params:
+      description: |-
+        Analyze a video scene using a Vision Language Model to answer natural language questions.
+
+        Args:
+            video_feed_id: The camera ID or video source identifier
+            question: Natural language question about the scene
+            tool_context: ADK tool context for session state and services
+            vlm_method: VLM method to use ("smolvlm" for speed, "seedvl" for accuracy)
+
+        Returns:
+            Dict containing analysis results
+  analyze_security_situation:
+    type: function
+    agents: [agent.create_aegis_agent.1, agent.create_aegis_agent.2, agent.create_aegis_agent.3]
+    params:
+      description: "Perform comprehensive security analysis of a video feed.\n\nThis tool combines YOLO object detection,\
+        \ VLM scene analysis, and security\ndecision logic to provide a complete security assessment. It identifies\nthreats,\
+        \ assesses crowd situations, and provides actionable recommendations.\n\nArgs:\n    video_feed_id: The camera ID or\
+        \ video source identifier (e.g., 'cam1', 'gate_2')\n    tool_context: ADK tool context for session state and services\n\
+        \    \nReturns:\n    Dict containing:\n    - status: Success/error status\n    - threat_level: Security threat level\
+        \ (low/medium/high)\n    - security_label: Overall security assessment (safe/abnormal)\n    - recommendations: Specific\
+        \ action recommendations\n    - detected_objects: Objects found in the scene\n    - scene_analysis: VLM description\
+        \ of the scene\n    - incident_detected: Whether an incident was detected"
+  detect_objects:
+    type: function
+    agents: [agent.create_aegis_agent.1, agent.create_aegis_agent.2, agent.create_aegis_agent.3]
+    params:
+      description: |-
+        Detect specific objects in a video feed using YOLO or OWLv2 object detection.
+
+        This tool captures a frame from the specified video feed and runs object detection
+        to find the requested objects. It returns bounding box coordinates, confidence scores,
+        and detection counts.
+
+        Args:
+            video_feed_id: The camera ID or video source identifier (e.g., 'cam1', 'gate_2')
+            object_list: List of objects to detect (e.g., ['person', 'backpack', 'car'])
+            tool_context: ADK tool context for session state and services
+            detection_method: Detection method to use ("yolo" for speed, "owlv2" for accuracy)
+
+        Returns:
+            Dict containing:
+            - status: Success/error status
+            - detection_method: Method used for detection
+            - detections: List of detected objects with bounding boxes
+            - counts: Count of each detected object type
+            - total_objects: Total number of objects detected
+            - camera_info: Information about the camera source
+  get_camera_info:
+    type: function
+    agents: [agent.create_aegis_agent.1, agent.create_aegis_agent.2, agent.create_aegis_agent.3]
+    params:
+      description: Get the camera information for a specific camera.
+  get_camera_stream_url:
+    type: function
+    agents: [agent.create_aegis_agent.1, agent.create_aegis_agent.2, agent.create_aegis_agent.3]
+    params:
+      description: "Get the video stream URL and information for a specific camera.\n\nThis tool provides a clean interface\
+        \ for the agent to obtain camera stream\nURLs and metadata. It maps logical camera names (like 'cam1', 'cam2', 'cam3',\
+        \ 'cam4') to\nactual video source URLs and provides detailed camera information.\n\nArgs:\n    camera_id: The logical\
+        \ camera identifier (e.g., 'cam1', 'cam2', 'cam3', 'cam4')\n    tool_context: ADK tool context for session state and\
+        \ services\n    \nReturns:\n    Dict containing:\n    - status: Success/error status  \n    - camera_url: The video\
+        \ stream URL\n    - camera_info: Detailed camera metadata\n    - available_cameras: List of available cameras if requested\
+        \ camera not found"
+  get_cameras_by_location_type:
+    type: function
+    agents: [agent.create_aegis_agent.1, agent.create_aegis_agent.2, agent.create_aegis_agent.3]
+    params:
+      description: "Get cameras filtered by location type (e.g., 'entrance_monitor', 'security_gate').\n\nArgs:\n    location_type:\
+        \ Type of camera location to filter by\n    tool_context: ADK tool context for session state and services\n    \n\
+        Returns:\n    Dict containing filtered camera information"
+  get_cameras_by_type:
+    type: function
+    agents: [agent.create_aegis_agent.1, agent.create_aegis_agent.2, agent.create_aegis_agent.3]
+    params:
+      description: "Get all cameras of a specific type.\n\nArgs:\n    camera_type: The type of camera to filter by\n    \n\
+        Returns:\n    dict: Cameras matching the specified type"
+  get_recent_incidents:
+    type: function
+    agents: [agent.create_aegis_agent.1, agent.create_aegis_agent.2, agent.create_aegis_agent.3]
+    params:
+      description: "Retrieve recent security incidents, optionally filtered by camera.\n\nArgs:\n    tool_context: ADK tool\
+        \ context for session state and services  \n    camera_id: Optional camera ID to filter by, or None for all cameras\n\
+        \    limit: Maximum number of incidents to return. Optional.\n    \nReturns:\n    Dict containing recent incident\
+        \ records"
+  list_all_cameras:
+    type: function
+    agents: [agent.create_aegis_agent.1, agent.create_aegis_agent.2, agent.create_aegis_agent.3]
+    params:
+      description: "List all available cameras in the system.\n\nThis tool provides a complete inventory of available cameras\
+        \ with their\nmetadata. Useful for operators to understand available surveillance coverage.\n\nArgs:\n    tool_context:\
+        \ ADK tool context for session state and services\n    \nReturns:\n    Dict containing all camera information"
+  log_security_incident:
+    type: function
+    agents: [agent.create_aegis_agent.1, agent.create_aegis_agent.2, agent.create_aegis_agent.3]
+    params:
+      description: "Log a security incident with evidence capture and structured record keeping.\n\nThis tool creates a permanent\
+        \ record of security incidents including timestamps,\ncamera snapshots, incident details, and generates unique incident\
+        \ IDs for tracking.\nIt's essential for maintaining security audit trails and evidence collection.\n\nArgs:\n    camera_id:\
+        \ The camera where the incident was detected\n    incident_type: Type of incident (e.g., 'threat_detection', 'crowd_control',\
+        \ 'abandoned_object')\n    description: Detailed description of the incident\n    tool_context: ADK tool context for\
+        \ session state and services\n    severity: Incident severity level ('low', 'medium', 'high', 'critical'). Optional.\n\
+        \    \nReturns:\n    Dict containing:\n    - status: Success/error status\n    - incident_id: Unique identifier for\
+        \ the incident\n    - log_file_path: Path to the incident log file\n    - evidence_captured: Whether visual evidence\
+        \ was captured\n    - timestamp: When the incident was logged"
+  SECURITY_TOOLS:
+    type: function
+    agents: [root_agent]
+    params:
+      dynamic: "True"
+  update_detection_result:
+    type: function
+    agents: [agent.create_aegis_agent.1, agent.create_aegis_agent.2, agent.create_aegis_agent.3]
+
+imports:
+  _capture_frame_from_source: aegis.tools.object_detection_tool._capture_frame_from_source
+  agent: agent
+  agent_engines: vertexai.agent_engines
+  analyze_frame: aegis.core.analyze_frame.analyze_frame
+  analyze_scene_with_vlm: vlm_analysis_tool.analyze_scene_with_vlm
+  analyze_security_situation: security_analysis_tool.analyze_security_situation
+  Any: typing.Any
+  asyncio: asyncio
+  Base: aegis.database.database.Base
+  base64: base64
+  CAMERA_SOURCES: aegis.config.camera_sources.CAMERA_SOURCES
+  clean_result_for_json: aegis.core.analyze_frame.clean_result_for_json
+  Column: sqlalchemy.Column
+  ComplexVideoUnderstander: viclab.video.doubao_video.ComplexVideoUnderstander
+  Content: google.genai.types.Content
+  Counter: collections.Counter
+  create_aegis_agent: aegis.aegis_agent.create_aegis_agent
+  create_aegis_agent_with_callbacks: aegis.aegis_agent.create_aegis_agent_with_callbacks
+  create_engine: sqlalchemy.create_engine
+  cv2: cv2
+  datetime: datetime.datetime
+  DateTime: sqlalchemy.DateTime
+  declarative_base: sqlalchemy.ext.declarative.declarative_base
+  deque: collections.deque
+  detect_objects: object_detection_tool.detect_objects
+  DetectionResult: aegis.database.models.DetectionResult
+  Dict: typing.Dict
+  get_camera_info: aegis.config.camera_sources.get_camera_info
+  get_camera_stream_url: camera_control_tool.get_camera_stream_url
+  get_camera_url: aegis.config.camera_sources.get_camera_url
+  get_cameras_by_location_type: camera_control_tool.get_cameras_by_location_type
+  get_cameras_by_type: aegis.config.camera_sources.get_cameras_by_type
+  get_recent_incidents: incident_logging_tool.get_recent_incidents
+  get_security_context: aegis.core.security_context.get_security_context
+  get_setting: aegis.config.settings.get_setting
+  Image: PIL.Image
+  init_analysis_engine: aegis.core.analyze_frame.init_analysis_engine
+  initialize_global_context: aegis.core.security_context.initialize_global_context
+  InMemorySessionService: google.adk.sessions.InMemorySessionService
+  Integer: sqlalchemy.Integer
+  json: json
+  List: typing.List
+  list_all_cameras: camera_control_tool.list_all_cameras
+  list_available_cameras: aegis.config.camera_sources.list_available_cameras
+  LlmAgent: google.adk.agents.LlmAgent
+  log_security_incident: aegis.tools.incident_logging_tool.log_security_incident
+  logging: logging
+  np: numpy
+  Optional: typing.Optional
+  os: os
+  OwlV2SAM: viclab.image.det_seg.OwlV2SAM
+  Part: google.genai.types.Part
+  reasoning_engines: vertexai.preview.reasoning_engines
+  Runner: google.adk.runners.Runner
+  SECURITY_TOOLS: aegis.tools.SECURITY_TOOLS
+  SessionLocal: aegis.database.database.SessionLocal
+  sessionmaker: sqlalchemy.orm.sessionmaker
+  SmolVLMRealtimeProcessor: viclab.video.realtime_video.SmolVLMRealtimeProcessor
+  String: sqlalchemy.String
+  sys: sys
+  textwrap: textwrap
+  threading: threading
+  time: time
+  ToolContext: google.adk.tools.ToolContext
+  types: google.genai.types
+  update_detection_result: aegis.tools.update_server_data_agent.update_detection_result
+  uuid: uuid
+  vertexai: vertexai
+  WebMonitorServer: aegis.server.web_monitor_server.WebMonitorServer
+  YOLO: ultralytics.YOLO
+  YoutubeDL: yt_dlp.YoutubeDL
+
+functions:
+  __init__:
+    type: sync
+    module: aegis.core.analyze_frame
+    args: [self]
+  _add_status_overlay:
+    type: sync
+    module: aegis.server.web_monitor_server
+    args: [self, frame, analysis_result]
+  _analyze_with_seedvl:
+    type: sync
+    module: aegis.tools.vlm_analysis_tool
+    args: [monitor_server, source_index, question]
+    params:
+      returns: tuple
+  _analyze_with_smolvlm:
+    type: sync
+    module: aegis.tools.vlm_analysis_tool
+    args: [monitor_server, source_index, question]
+    params:
+      returns: tuple
+  _calculate_overall_confidence:
+    type: sync
+    module: aegis.tools.security_analysis_tool
+    args: [yolo_analysis, vlm_analysis]
+    params:
+      returns: float
+  _capture_frame_from_source:
+    type: sync
+    module: aegis.tools.object_detection_tool
+    args: [video_feed_id]
+    params:
+      returns: np.ndarray
+  _capture_stream:
+    type: sync
+    module: aegis.server.web_monitor_server
+    args: [self, index, stream_url]
+  _count_todays_incidents:
+    type: sync
+    module: aegis.tools.incident_logging_tool
+    args: [log_dir]
+    params:
+      returns: int
+  _detect_with_owlv2:
+    type: sync
+    module: aegis.tools.object_detection_tool
+    args: [frame, object_list]
+    params:
+      returns: tuple
+  _detect_with_yolo:
+    type: sync
+    module: aegis.tools.object_detection_tool
+    args: [frame, object_list]
+    params:
+      returns: tuple
+  _find_similar_cameras:
+    type: sync
+    module: aegis.tools.camera_control_tool
+    args: [camera_id, available_cameras]
+    params:
+      returns: list
+  _generate_security_recommendations:
+    type: sync
+    module: aegis.tools.security_analysis_tool
+    args: [threat_level, security_label, command, yolo_analysis, vlm_analysis, matched_threat]
+    params:
+      returns: list
+  _get_incident_next_actions:
+    type: sync
+    module: aegis.tools.incident_logging_tool
+    args: [severity, incident_type]
+    params:
+      returns: list
+  _get_priority_action:
+    type: sync
+    module: aegis.tools.security_analysis_tool
+    args: [threat_level, security_label]
+    params:
+      returns: str
+  _get_youtube_stream_url:
+    type: sync
+    module: aegis.server.web_monitor_server
+    args: [self, video_url]
+    params:
+      returns: Optional[str]
+  _load_stream_urls:
+    type: sync
+    module: aegis.server.web_monitor_server
+    args: [self]
+  _show_help:
+    type: sync
+    module: run_agent
+    args: [self]
+  _summarize_incidents:
+    type: sync
+    module: aegis.tools.incident_logging_tool
+    args: [incidents]
+    params:
+      returns: Dict
+  add_frame:
+    type: sync
+    module: aegis.core.analyze_frame
+    args: [self, frame]
+  analyze_frame:
+    type: sync
+    module: aegis.core.analyze_frame
+    args: [frame, camera_id, use_vlm]
+    params:
+      returns: Dict
+  analyze_scene_with_vlm:
+    type: sync
+    module: aegis.tools.vlm_analysis_tool
+    args: [video_feed_id, question, tool_context, vlm_method]
+    params:
+      returns: Dict
+  analyze_security_situation:
+    type: sync
+    module: aegis.tools.security_analysis_tool
+    args: [video_feed_id, tool_context]
+    params:
+      returns: Dict
+  analyze_vlm_description:
+    type: sync
+    module: aegis.core.analyze_frame
+    args: [self, vlm_description]
+    params:
+      returns: Dict
+  analyze_yolo_results:
+    type: sync
+    module: aegis.core.analyze_frame
+    args: [self, yolo_results]
+    params:
+      returns: Dict
+  clean_result_for_json:
+    type: sync
+    module: aegis.core.analyze_frame
+    args: [data]
+    params:
+      returns: Any
+  cleanup:
+    type: sync
+    module: aegis.core.security_context
+    args: [self]
+  cleanup_global_context:
+    type: sync
+    module: aegis.core.security_context
+  clear:
+    type: sync
+    module: aegis.core.analyze_frame
+    args: [self]
+  clear_camera_buffer:
+    type: sync
+    module: aegis.core.analyze_frame
+    args: [camera_id]
+  create_aegis_agent:
+    type: sync
+    module: aegis.tools.agent
+    args: [enable_callbacks]
+    params:
+      returns: LlmAgent
+  create_aegis_agent_with_callbacks:
+    type: sync
+    module: aegis.tools.agent
+    params:
+      returns: LlmAgent
+  create_and_prepare_agent:
+    type: sync
+    module: scripts.deploy_to_vertex_ai
+  deploy_to_agent_engine:
+    type: sync
+    module: scripts.deploy_to_vertex_ai
+    args: [agent, config]
+  detect_objects:
+    type: sync
+    module: aegis.tools.object_detection_tool
+    args: [video_feed_id, object_list, tool_context, detection_method]
+    params:
+      returns: Dict
+  disable_background_analysis:
+    type: sync
+    module: aegis.server.web_monitor_server
+    args: [self]
+  get_buffer_status:
+    type: sync
+    module: aegis.core.analyze_frame
+    params:
+      returns: Dict
+  get_camera_info:
+    type: sync
+    module: aegis.tools.camera_control_tool
+    args: [camera_id]
+    params:
+      returns: Dict
+  get_camera_stream_url:
+    type: sync
+    module: aegis.tools.camera_control_tool
+    args: [camera_id, tool_context]
+    params:
+      returns: Dict
+  get_camera_url:
+    type: sync
+    module: aegis.config.camera_sources
+    args: [camera_id]
+    params:
+      returns: Optional[str]
+  get_cameras_by_location_type:
+    type: sync
+    module: aegis.tools.camera_control_tool
+    args: [location_type, tool_context]
+    params:
+      returns: Dict
+  get_cameras_by_type:
+    type: sync
+    module: aegis.config.camera_sources
+    args: [camera_type]
+    params:
+      returns: Dict
+  get_crowd_threshold:
+    type: sync
+    module: aegis.config.settings
+    args: [level]
+    params:
+      returns: int
+  get_environment_config:
+    type: sync
+    module: scripts.deploy_to_vertex_ai
+  get_frame:
+    type: sync
+    module: aegis.server.web_monitor_server
+    args: [self, index]
+    params:
+      returns: Optional[np.ndarray]
+  get_frame_as_base64:
+    type: sync
+    module: aegis.server.web_monitor_server
+    args: [self, source_index, camera_id]
+    params:
+      returns: Optional[str]
+  get_frame_as_jpeg:
+    type: sync
+    module: aegis.server.web_monitor_server
+    args: [self, source_index, camera_id]
+    params:
+      returns: Optional[bytes]
+  get_frame_buffer:
+    type: sync
+    module: aegis.core.analyze_frame
+    args: [camera_id]
+    params:
+      returns: FrameBuffer
+  get_latest_frame:
+    type: sync
+    module: aegis.core.analyze_frame
+    args: [self]
+  get_recent_frames:
+    type: sync
+    module: aegis.core.analyze_frame
+    args: [self, duration_seconds]
+  get_recent_incidents:
+    type: sync
+    module: aegis.tools.incident_logging_tool
+    args: [tool_context, camera_id, limit]
+    params:
+      returns: Dict
+  get_security_context:
+    type: sync
+    module: aegis.core.security_context
+    params:
+      returns: SecurityContext
+  get_setting:
+    type: sync
+    module: aegis.config.settings
+    args: [key_path, default]
+    params:
+      returns: Any
+  get_stream_info:
+    type: sync
+    module: aegis.server.web_monitor_server
+    args: [self]
+    params:
+      returns: list
+  get_threat_keywords:
+    type: sync
+    module: aegis.config.settings
+    params:
+      returns: list
+  get_usage_info:
+    type: sync
+    module: scripts.deploy_to_vertex_ai
+    args: [remote_app, config]
+  init_analysis_engine:
+    type: sync
+    module: aegis.core.analyze_frame
+    args: [model_path]
+    params:
+      returns: bool
+  init_seedvl_processor:
+    type: sync
+    module: aegis.tools.vlm_analysis_tool
+  init_smolvlm_processor:
+    type: sync
+    module: aegis.tools.vlm_analysis_tool
+  initialize:
+    type: async
+    module: run_agent
+    args: [self]
+    params:
+      returns: bool
+  initialize_global_context:
+    type: sync
+    module: aegis.core.security_context
+    params:
+      returns: SecurityContext
+  initialize_vertex_ai:
+    type: sync
+    module: scripts.deploy_to_vertex_ai
+    args: [config]
+  is_initialized:
+    type: sync
+    module: aegis.core.security_context
+    args: [self]
+    params:
+      returns: bool
+  is_vlm_enabled:
+    type: sync
+    module: aegis.config.settings
+    params:
+      returns: bool
+  list_all_cameras:
+    type: sync
+    module: aegis.tools.camera_control_tool
+    args: [tool_context]
+    params:
+      returns: Dict
+  list_available_cameras:
+    type: sync
+    module: aegis.config.camera_sources
+    params:
+      returns: Dict
+  log_security_incident:
+    type: sync
+    module: aegis.tools.incident_logging_tool
+    args: [camera_id, incident_type, description, tool_context, severity]
+    params:
+      returns: Dict
+  main:
+    type: async
+    module: run_agent
+  make_security_decision:
+    type: sync
+    module: aegis.core.analyze_frame
+    args: [self, yolo_analysis, vlm_analysis, vlm_description]
+    params:
+      returns: Dict
+  monitor_server:
+    type: sync
+    module: aegis.core.security_context
+    args: [self]
+    params:
+      returns: WebMonitorServer
+  print_error:
+    type: sync
+    module: scripts.deploy_to_vertex_ai
+    args: [message]
+  print_status:
+    type: sync
+    module: scripts.deploy_to_vertex_ai
+    args: [message]
+  print_success:
+    type: sync
+    module: scripts.deploy_to_vertex_ai
+    args: [message]
+  print_warning:
+    type: sync
+    module: scripts.deploy_to_vertex_ai
+    args: [message]
+  process_command:
+    type: async
+    module: run_agent
+    args: [self, command, user_id, session_id]
+    params:
+      returns: dict
+  run_interactive_mode:
+    type: async
+    module: run_agent
+    args: [self]
+  set_analysis_interval:
+    type: sync
+    module: aegis.server.web_monitor_server
+    args: [self, interval_seconds]
+  start_all_streams:
+    type: sync
+    module: aegis.server.web_monitor_server
+    args: [self]
+  stop_all_streams:
+    type: sync
+    module: aegis.server.web_monitor_server
+    args: [self]
+  stop_monitoring:
+    type: sync
+    module: aegis.server.web_monitor_server
+    args: [self]
+  test_deployment:
+    type: sync
+    module: scripts.deploy_to_vertex_ai
+    args: [remote_app]
+  toggle_bounding_boxes:
+    type: sync
+    module: aegis.server.web_monitor_server
+    args: [self, enabled]
+  update_detection_result:
+    type: sync
+    module: aegis.tools.update_server_data_agent
+    args: [camera_id, result]
+
+variables:
+  AEGIS_{...}:
+    type: env
+    params:
+      caller: [os.getenv]
+      path: [aegis.config.settings]
+  GOOGLE_CLOUD_LOCATION:
+    type: env
+    params:
+      caller: [os.environ.get]
+      path: [scripts.deploy_to_vertex_ai]
+  GOOGLE_CLOUD_PROJECT:
+    type: env
+    params:
+      caller: [os.environ.get]
+      path: [scripts.deploy_to_vertex_ai]
+  STAGING_BUCKET:
+    type: env
+    params:
+      caller: [os.environ.get]
+      path: [scripts.deploy_to_vertex_ai]
+
+files:
+  ../../viclab:
+    type: pattern
+    actions: [read]
+    params:
+      caller: [os.path.join]
+      pattern: [os.path.dirname(), ../../viclab]
+  ../../viclab/viclab/image/checkpoints/sam_vit_h_4b8939.pth:
+    type: pattern
+    actions: [read]
+    params:
+      caller: [os.path.join]
+      pattern: [os.path.dirname(), ../../viclab/viclab/image/checkpoints/sam_vit_h_4b8939.pth]
+  ../checkpoints/yolo11n.pt:
+    type: pattern
+    actions: [read]
+    params:
+      caller: [os.path.join]
+      pattern: [os.path.dirname(), ../checkpoints/yolo11n.pt]
+  evidence_dir:
+    type: variable
+    actions: [read]
+    params:
+      caller: [os.makedirs]
+  log_dir:
+    type: variable
+    actions: [read]
+    params:
+      caller: [os.makedirs, os.path.exists]
+  log_file_path:
+    type: variable
+    actions: [write, read]
+    params:
+      caller: [open, os.path.exists]
+      alias: [log_file]
+  model_path:
+    type: variable
+    actions: [read]
+    params:
+      caller: [os.path.exists]
+  path:
+    type: variable
+    actions: [read]
+    params:
+      caller: [os.path.exists]
